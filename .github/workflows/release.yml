@@ -49,7 +49,7 @@ jobs:
       - name: Build the app
         uses: tauri-apps/tauri-action@v0
         env:
-          GITHUB_TOKEN: ${{ secrets.CI_ANTI }}
+          GITHUB_TOKEN: ${{ secrets.TEMP }}
           TAURI_SIGNING_PRIVATE_KEY: ${{ secrets.TAURI_SIGNING_PRIVATE_KEY }}
           TAURI_SIGNING_PRIVATE_KEY_PASSWORD: ${{ secrets.TAURI_SIGNING_PRIVATE_KEY_PASSWORD }}
         with:
@@ -126,7 +126,7 @@ jobs:
         uses: softprops/action-gh-release@v1
         if: startsWith(github.ref, 'refs/tags/')
         env:
-          GITHUB_TOKEN: ${{ secrets.CI_ANTI }}
+          GITHUB_TOKEN: ${{ secrets.TEMP }}
         with:
           tag_name: ${{ github.ref_name }}
           name: "Antigravity Tools ${{ github.ref_name }}"
